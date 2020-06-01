@@ -9,4 +9,7 @@ app.use(express.json())
 
 app.use(require('./routes'))
 
-app.listen(process.env.PORT || 3000, () => console.log('http://localhost:3000'))
+require('./connections')
+  .sync()
+  .then(() => app.listen(3000, () => console.log('http://localhost:3000')))
+  .catch(err => console.error(err))
