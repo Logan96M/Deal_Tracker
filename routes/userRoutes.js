@@ -10,7 +10,7 @@ router.get('/users', (req, res) => {
 
 // GET one user
 router.get('/users/:id', (req, res) => {
-  User.findOne({ where: { id: req.params.id }, include: [Deals] })
+  User.findOne({ where: { id: req.params.id }, include: [Deal] })
     .then(user => res.json(user))
     .catch(err => console.error(err))
 })
