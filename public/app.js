@@ -1,4 +1,4 @@
-  document.getElementById('signUp').addEventListener('click', event => {
+document.getElementById('signUp').addEventListener('click', event => {
     event.preventDefault()
     axios.post('/api/users', {
       name: document.getElementById('newUsername').value

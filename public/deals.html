@@ -4,70 +4,177 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Deals</title>
-    <link rel="stylesheet" href="./assets/css/style.css">
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/fomantic-ui/2.8.5/semantic.min.css">
+    <link rel="stylesheet" href="./assets/css/style.css">
 </head>
 <body>
-    <!-- navbar -->
-    <div class="ui container">
-        <div class="ui menu">
-            <div class="teal item">
-                About
+    <div class="ui inverted vertical masthead center aligned segment main">
+        <!-- Navbar -->
+        <div class="ui container">
+            <div class="ui large secondary inverted pointing menu">
+                <h1>Deal Tracker</h1>
+                <div class="right item">
+                    <a class="ui inverted button" id="signOut">Sign Out</a>
+                </div>
             </div>
-            <div class="teal item">
-                Contact
+        </div>
+    
+        <!-- Body -->
+        <div class="ui container bodyDiv">
+            <div class="ui five column doubling stackable grid container">
+                <!-- Lead Stage -->
+                <div class="column">
+                    <div class="ui card" id="leadStage" >
+                        <div class="content">
+                            <div class="header">Lead</div>
+                        </div>
+                        <div class="content left aligned stageBackground" ondrop="drop(event)" ondragover="allowDrop(event)">
+                            <div class="ui raised card" draggable="true" ondragstart="drag(event)" id="deal1">
+                                <div class="content">
+                                    <div class="header">Deal Name Here</div>
+                                    <div class="description">
+                                        <h5>Value: $5,000</h5>
+                                    </div>
+                                </div>
+                                <div class="extra content">
+                                    <p><strong>Organization</strong></p>
+                                    <p><strong>Contact:</strong> First Last</p>
+                                    <p><strong>Phone:</strong> 555-444-3333</p>
+                                    <p><strong>Email:</strong> email@test.com</p>
+                                    <p><strong>Notes:</strong>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ullam reiciendis assumenda distinctio, iusto saepe quia optio, ipsam nulla consequatur officiis ipsum. Error quam eaque voluptates, minima nostrum necessitatibus reprehenderit sed.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="extra content">
+                            <button class="ui labeled icon blue button" id="addLeadDealBtn">
+                                <i class="plus circle icon"></i>
+                                Add a Deal
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <!-- Contacted Stage -->
+                <div class="column">
+                    <div class="ui card" id="contactedStage">
+                        <div class="content">
+                            <div class="header">Contacted</div>
+                        </div>
+                        <div class="content left aligned stageBackground" ondrop="drop(event)" ondragover="allowDrop(event)">
+                            
+                        </div>
+                        <div class="extra content">
+                            <button class="ui labeled icon blue button" id="addContactedDealBtn">
+                                <i class="plus circle icon"></i>
+                                Add a Deal
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="column">
+                    <p>First</p>
+                    <p>Second</p>
+                </div>
+                <div class="column">
+                    <p>First</p>
+                    <p>Second</p>
+                </div>
+                <div class="column">
+                    <div class="row">
+                        <p>First</p>
+                        <p>Second</p>
+                    </div>
+                    <div class="row">
+                        <p>First</p>
+                        <p>Second</p>
+                    </div>
+                </div>
             </div>
-            <div class=" active right teal item">
-                Sign Out
+            <!-- <h1 class="ui inverted header">
+                Imagine-a-Company
+            </h1>
+            <h2>Do whatever you want when you want to.</h2>
+            <div class="ui huge primary button">Get Started <i class="right arrow icon"></i></div> -->
+        </div>
+    
+    </div>
+
+    <!-- HTML for new deal intake form modal -->
+    <div class="ui modal">
+        <i class="close icon"></i>
+        <div class="header">
+            Add a New Deal
+        </div>
+        <div class="form content">
+            <form class="ui form">
+                <div class="fields">
+                    <div class="twelve wide field">
+                        <label>Deal Name</label>
+                        <input type="text" name="deal-name" placeholder="Deal Name">
+                    </div>  
+                    <div class="six wide field">
+                        <label>Deal Value (amount in $)</label>
+                        <input type="number" name="deal-value" placeholder="Deal Value">
+                    </div>
+                </div>    
+                <div class="fields">
+                    <div class="four wide field"> 
+                        <label>Organization Name</label>
+                        <input type="text" name="org-name" placeholder="Organization Name">
+                    </div>
+                    <div class="four wide field">
+                        <label>Contact Name</label>
+                        <input type="text" name="contact-name" placeholder="Contact Name">
+                    </div>
+                    <div class="four wide field"> 
+                        <label>Email</label>
+                        <input type="text" name="org-name" placeholder="Organization Name">
+                    </div>
+                    <div class="four wide field"> 
+                        <label>Phone</label>
+                        <input type="text" name="contact-name" placeholder="Contact Name">
+                    </div>
+                </div>
+                    <div class="field"> 
+                        <label>Notes</label>
+                        <textarea rows="3" name="notes" placeholder="Enter any notes about this deal here."></textarea>
+                    </div>
+            </form>   
+        </div>     
+            <div class="actions">
+                <div class="ui black deny button">
+                    Cancel
+                </div>
+                <div class="ui positive right labeled icon button">
+                    Add New Deal
+                    <i class="checkmark icon"></i>
+                </div>
             </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="ui inverted vertical footer segment">
+        <div class="ui container center aligned">
+            <h4>© Deal Tracker</h4>
         </div>
     </div>
 
-    <!-- body -->
-    <div class="ui container">
-        <!-- <div class="ui grid"></div>
-            <div class="ui twelve column grid"></div>
-                <div class="column">
-                    <div class="column"></div>
-                    <div class="column"></div>
-                    <div class="column"></div>
-                </div>
-            <div class="four wide column grid"></div>
-                <div></div>
-
-        </div> -->
-        <!-- <div class="ui four column grid">
-            <div class="row">
-                <div class="column">Lead</div>
-                <div class="column">Contacted</div>
-                <div class="column">Qualified</div>
-                <div class="column">Proposal Made</div>
-            </div>
-        </div> -->
-    </div>
-
-    <!-- footer -->
-
-
-<!-- 
-    <div>
-        <main>
-            <div id="stage-row">
-                <h3>Lead</h3>
-                <ul>
-                    <li>
-                        <a href="#" class=""></a>
-                            <div>
-                                <p class=""></p>
-                            </div>
-                    </li>
-                </ul>
-            </div>
-        </main>
-    </div> -->
-
-
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/fomantic-ui/2.8.5/semantic.min.js"></script>
+    <script src="./assets/js/style.js"></script>
+
+    <script>
+        // Listen for click on "+ Add a Deal" button on 'Lead' stage and open modal with fields for creating a new deal:
+        document.getElementById('addLeadDealBtn').addEventListener('click', event => {
+            event.preventDefault()
+            $('.ui.modal').modal('show')
+        })
+        // Listen for click on "+ Add a Deal" button on 'Contacted' stage and open modal with fields for creating a new deal:
+        document.getElementById('addContactedDealBtn').addEventListener('click', event => {
+            event.preventDefault()
+            $('.ui.modal').modal('show')
+        })
+    </script>
+
 </body>
 </html>
