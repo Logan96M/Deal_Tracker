@@ -46,13 +46,14 @@
                             </div>
                         </div>
                         <div class="extra content">
-                            <button class="ui labeled icon blue button" id="addLeadDealBtn">
+                            <button class="ui labeled icon blue button" id="addLead">
                                 <i class="plus circle icon"></i>
                                 Add a Deal
                             </button>
                         </div>
                     </div>
                 </div>
+
                 <!-- Contacted Stage -->
                 <div class="column">
                     <div class="ui card" id="contactedStage">
@@ -63,7 +64,7 @@
                             
                         </div>
                         <div class="extra content">
-                            <button class="ui labeled icon blue button" id="addContactedDealBtn">
+                            <button class="ui labeled icon blue button" id="addContacted">
                                 <i class="plus circle icon"></i>
                                 Add a Deal
                             </button>
@@ -71,32 +72,70 @@
                     </div>
                 </div>
 
+                <!-- Qualified Stage -->
                 <div class="column">
-                    <p>First</p>
-                    <p>Second</p>
-                </div>
-                <div class="column">
-                    <p>First</p>
-                    <p>Second</p>
-                </div>
-                <div class="column">
-                    <div class="row">
-                        <p>First</p>
-                        <p>Second</p>
+                    <div class="ui card" id="qualifiedStage">
+                        <div class="content">
+                            <div class="header">Qualified</div>
+                        </div>
+                        <div class="content left aligned stageBackground" ondrop="drop(event)" ondragover="allowDrop(event)">
+                
+                        </div>
+                        <div class="extra content">
+                            <button class="ui labeled icon blue button" id="addQualified">
+                                <i class="plus circle icon"></i>
+                                Add a Deal
+                            </button>
+                        </div>
                     </div>
+                </div>
+
+                <!-- Proposal Made Stage -->
+                <div class="column">
+                    <div class="ui card" id="proposalStage">
+                        <div class="content">
+                            <div class="header">Proposal Made</div>
+                        </div>
+                        <div class="content left aligned stageBackground" ondrop="drop(event)" ondragover="allowDrop(event)">
+                
+                        </div>
+                        <div class="extra content">
+                            <button class="ui labeled icon blue button" id="addProposal">
+                                <i class="plus circle icon"></i>
+                                Add a Deal
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Won/Lost Stages Column -->
+                <div class="column">
                     <div class="row">
-                        <p>First</p>
-                        <p>Second</p>
+                        <!-- Won Deal -->
+                        <div class="column">
+                            <div class="ui card" id="wonStage">
+                                <div class="content">
+                                    <div class="header">Won Deals</div>
+                                </div>
+                                <div class="content left aligned stageBackground" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <p></p>
+                    <div class="row">
+                        <!-- Lost Deal -->
+                        <div class="column">
+                            <div class="ui card" id="lostStage">
+                                <div class="content">
+                                    <div class="header">Lost Deals</div>
+                                </div>
+                                <div class="content left aligned stageBackground" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-            <!-- <h1 class="ui inverted header">
-                Imagine-a-Company
-            </h1>
-            <h2>Do whatever you want when you want to.</h2>
-            <div class="ui huge primary button">Get Started <i class="right arrow icon"></i></div> -->
         </div>
-    
     </div>
 
     <!-- HTML for new deal intake form modal -->
