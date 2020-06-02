@@ -1,3 +1,4 @@
+// button functionality for signing up and storing login in Local Storage
 document.getElementById('signUp').addEventListener('click', event => {
     event.preventDefault()
     axios.post('/api/users', {
@@ -11,6 +12,7 @@ document.getElementById('signUp').addEventListener('click', event => {
       .catch(err => console.error(err))
   })
 
+  //button functionality for signing in and storing login in Local Storage
   document.getElementById('signIn').addEventListener('click', event => {
     event.preventDefault()
     axios.get(`api/login/${document.getElementById('username').value}`)
@@ -22,9 +24,56 @@ document.getElementById('signUp').addEventListener('click', event => {
       .catch(err => console.error(err))
   })
 
-//button functionality for adding a new deal for specific user
-  document.getElementById('addDeal').addEventListener('click', event => {
+//button functionality for adding a new LEAD deal for specific user
+  document.getElementById('addLead').addEventListener('click', event => {
     event.preventDefault()
+    $('.ui.modal').modal('show')
+    axios.post(`api/users/:id`, {
+      dealName: document.getElementById('dealName').value,
+      value: document.getElementById('dealValue').value,
+      organization: document.getElementById('dealOrg').value,
+      contact: document.getElementById('dealContact').value,
+      phone: document.getElementById('dealPhone').value,
+      email: document.getElementById('dealEmail').value,
+      notes: document.getElementById('dealNotes').value,
+      stage: document.getElementById('dealStage').value,
+      userId: localStorage.getItem(data.id)
+    })
+    .then(({data}) => {
+      let dealElem = document.createElement('li')
+      petElem.textContent = `
+      <div class="ui raised card" draggable="true" ondragstart="drag(event)" id="deal1">
+        <div class="content">
+          <div class="header">${document.getElementById('dealName').value}</div>
+            <div class="description">
+              <h5>Value: ${document.getElementById('dealValue').value}</h5>
+            </div>
+          </div>
+            <div class="extra content">
+              <p><strong>Organization: </strong>${document.getElementById('dealOrg').value}</p>
+              <p><strong>Contact: </strong>${document.getElementById('dealContact').value}</p>
+              <p><strong>Phone: </strong>${document.getElementById('dealPhone').value}</p>
+              <p><strong>Email: </strong>${document.getElementById('dealEmail').value}</p>
+              <p><strong>Notes: </strong>${document.getElementById('dealNotes').value}</p>
+            </div>
+      </div>`
+      document.getElementById(`${dealStage}`).append(dealElem)
+      document.getElementById('dealName').value = ''
+      document.getElementById('dealValue').value = ''
+      document.getElementById('dealOrg').value = ''
+      document.getElementById('dealContact').value = ''
+      document.getElementById('dealPhone').value = ''
+      document.getElementById('dealEmail').value = ''
+      document.getElementById('dealNotes').value = ''
+      document.getElementById('dealStage').value = ''
+      location.reload()
+    })
+    .catch(err => console.log(err))
+  })
+  //button functionality for adding a new CONTACTED deal for specific user
+  document.getElementById('addContacted').addEventListener('click', event => {
+    event.preventDefault()
+    $('.ui.modal').modal('show')
     axios.post(`api/users/:id`, {
       dealName: document.getElementById('dealName').value,
       value: document.getElementById('dealValue').value,
@@ -68,9 +117,198 @@ document.getElementById('signUp').addEventListener('click', event => {
     .catch(err => console.log(err))
   })
 
+  //button functionality for adding a new QUALIFIED deal for specific user
+  document.getElementById('addQualified').addEventListener('click', event => {
+    event.preventDefault()
+    $('.ui.modal').modal('show')
+    axios.post(`api/users/:id`, {
+      dealName: document.getElementById('dealName').value,
+      value: document.getElementById('dealValue').value,
+      organization: document.getElementById('dealOrg').value,
+      contact: document.getElementById('dealContact').value,
+      phone: document.getElementById('dealPhone').value,
+      email: document.getElementById('dealEmail').value,
+      notes: document.getElementById('dealNotes').value,
+      stage: document.getElementById('dealStage').value,
+      userId: localStorage.getItem(data.id)
+    })
+    .then(({data}) => {
+      let dealElem = document.createElement('li')
+      petElem.textContent = `
+      <div class="ui raised card" draggable="true" ondragstart="drag(event)" id="deal1">
+        <div class="content">
+          <div class="header">${document.getElementById('dealName').value}</div>
+            <div class="description">
+              <h5>Value: ${document.getElementById('dealValue').value}</h5>
+            </div>
+          </div>
+            <div class="extra content">
+              <p><strong>Organization: </strong>${document.getElementById('dealOrg').value}</p>
+              <p><strong>Contact: </strong>${document.getElementById('dealContact').value}</p>
+              <p><strong>Phone: </strong>${document.getElementById('dealPhone').value}</p>
+              <p><strong>Email: </strong>${document.getElementById('dealEmail').value}</p>
+              <p><strong>Notes: </strong>${document.getElementById('dealNotes').value}</p>
+            </div>
+      </div>`
+      document.getElementById(`${dealStage}`).append(dealElem)
+      document.getElementById('dealName').value = ''
+      document.getElementById('dealValue').value = ''
+      document.getElementById('dealOrg').value = ''
+      document.getElementById('dealContact').value = ''
+      document.getElementById('dealPhone').value = ''
+      document.getElementById('dealEmail').value = ''
+      document.getElementById('dealNotes').value = ''
+      document.getElementById('dealStage').value = ''
+      location.reload()
+    })
+    .catch(err => console.log(err))
+  })
+
+//button functionality for adding a new PROPOSAL deal for specific user
+document.getElementById('addProposal').addEventListener('click', event => {
+  event.preventDefault()
+  $('.ui.modal').modal('show')
+  axios.post(`api/users/:id`, {
+    dealName: document.getElementById('dealName').value,
+    value: document.getElementById('dealValue').value,
+    organization: document.getElementById('dealOrg').value,
+    contact: document.getElementById('dealContact').value,
+    phone: document.getElementById('dealPhone').value,
+    email: document.getElementById('dealEmail').value,
+    notes: document.getElementById('dealNotes').value,
+    stage: document.getElementById('dealStage').value,
+    userId: localStorage.getItem(data.id)
+  })
+  .then(({data}) => {
+    let dealElem = document.createElement('li')
+    petElem.textContent = `
+    <div class="ui raised card" draggable="true" ondragstart="drag(event)" id="deal1">
+      <div class="content">
+        <div class="header">${document.getElementById('dealName').value}</div>
+          <div class="description">
+            <h5>Value: ${document.getElementById('dealValue').value}</h5>
+          </div>
+        </div>
+          <div class="extra content">
+            <p><strong>Organization: </strong>${document.getElementById('dealOrg').value}</p>
+            <p><strong>Contact: </strong>${document.getElementById('dealContact').value}</p>
+            <p><strong>Phone: </strong>${document.getElementById('dealPhone').value}</p>
+            <p><strong>Email: </strong>${document.getElementById('dealEmail').value}</p>
+            <p><strong>Notes: </strong>${document.getElementById('dealNotes').value}</p>
+          </div>
+    </div>`
+    document.getElementById(`${dealStage}`).append(dealElem)
+    document.getElementById('dealName').value = ''
+    document.getElementById('dealValue').value = ''
+    document.getElementById('dealOrg').value = ''
+    document.getElementById('dealContact').value = ''
+    document.getElementById('dealPhone').value = ''
+    document.getElementById('dealEmail').value = ''
+    document.getElementById('dealNotes').value = ''
+    document.getElementById('dealStage').value = ''
+    location.reload()
+  })
+  .catch(err => console.log(err))
+})
+
+//button functionality for adding a new WON deal for specific user
+document.getElementById('addWon').addEventListener('click', event => {
+  event.preventDefault()
+  $('.ui.modal').modal('show')
+  axios.post(`api/users/:id`, {
+    dealName: document.getElementById('dealName').value,
+    value: document.getElementById('dealValue').value,
+    organization: document.getElementById('dealOrg').value,
+    contact: document.getElementById('dealContact').value,
+    phone: document.getElementById('dealPhone').value,
+    email: document.getElementById('dealEmail').value,
+    notes: document.getElementById('dealNotes').value,
+    stage: document.getElementById('dealStage').value,
+    userId: localStorage.getItem(data.id)
+  })
+  .then(({data}) => {
+    let dealElem = document.createElement('li')
+    petElem.textContent = `
+    <div class="ui raised card" draggable="true" ondragstart="drag(event)" id="deal1">
+      <div class="content">
+        <div class="header">${document.getElementById('dealName').value}</div>
+          <div class="description">
+            <h5>Value: ${document.getElementById('dealValue').value}</h5>
+          </div>
+        </div>
+          <div class="extra content">
+            <p><strong>Organization: </strong>${document.getElementById('dealOrg').value}</p>
+            <p><strong>Contact: </strong>${document.getElementById('dealContact').value}</p>
+            <p><strong>Phone: </strong>${document.getElementById('dealPhone').value}</p>
+            <p><strong>Email: </strong>${document.getElementById('dealEmail').value}</p>
+            <p><strong>Notes: </strong>${document.getElementById('dealNotes').value}</p>
+          </div>
+    </div>`
+    document.getElementById(`${dealStage}`).append(dealElem)
+    document.getElementById('dealName').value = ''
+    document.getElementById('dealValue').value = ''
+    document.getElementById('dealOrg').value = ''
+    document.getElementById('dealContact').value = ''
+    document.getElementById('dealPhone').value = ''
+    document.getElementById('dealEmail').value = ''
+    document.getElementById('dealNotes').value = ''
+    document.getElementById('dealStage').value = ''
+    location.reload()
+  })
+  .catch(err => console.log(err))
+})
+
+//button functionality for adding a new LOST deal for specific user
+document.getElementById('addLost').addEventListener('click', event => {
+  event.preventDefault()
+  $('.ui.modal').modal('show')
+  axios.post(`api/users/:id`, {
+    dealName: document.getElementById('dealName').value,
+    value: document.getElementById('dealValue').value,
+    organization: document.getElementById('dealOrg').value,
+    contact: document.getElementById('dealContact').value,
+    phone: document.getElementById('dealPhone').value,
+    email: document.getElementById('dealEmail').value,
+    notes: document.getElementById('dealNotes').value,
+    stage: document.getElementById('dealStage').value,
+    userId: localStorage.getItem(data.id)
+  })
+  .then(({data}) => {
+    let dealElem = document.createElement('li')
+    petElem.textContent = `
+    <div class="ui raised card" draggable="true" ondragstart="drag(event)" id="deal1">
+      <div class="content">
+        <div class="header">${document.getElementById('dealName').value}</div>
+          <div class="description">
+            <h5>Value: ${document.getElementById('dealValue').value}</h5>
+          </div>
+        </div>
+          <div class="extra content">
+            <p><strong>Organization: </strong>${document.getElementById('dealOrg').value}</p>
+            <p><strong>Contact: </strong>${document.getElementById('dealContact').value}</p>
+            <p><strong>Phone: </strong>${document.getElementById('dealPhone').value}</p>
+            <p><strong>Email: </strong>${document.getElementById('dealEmail').value}</p>
+            <p><strong>Notes: </strong>${document.getElementById('dealNotes').value}</p>
+          </div>
+    </div>`
+    document.getElementById(`${dealStage}`).append(dealElem)
+    document.getElementById('dealName').value = ''
+    document.getElementById('dealValue').value = ''
+    document.getElementById('dealOrg').value = ''
+    document.getElementById('dealContact').value = ''
+    document.getElementById('dealPhone').value = ''
+    document.getElementById('dealEmail').value = ''
+    document.getElementById('dealNotes').value = ''
+    document.getElementById('dealStage').value = ''
+    location.reload()
+  })
+  .catch(err => console.log(err))
+})
+
   //button functionality for edit/update deal for specific user
   document.getElementById('editDeal').addEventListener('click', event => {
     event.preventDefault()
+    $('.ui.modal').modal('show')
     axios.put(`api/users/:id`, {
       dealName: document.getElementById('dealName').value,
       value: document.getElementById('dealValue').value,
@@ -89,8 +327,9 @@ document.getElementById('signUp').addEventListener('click', event => {
   })
 
   //button functionality for delete deal for specific user
-  document.getElementById('editDeal').addEventListener('click', event => {
+  document.getElementById('deleteDeal').addEventListener('click', event => {
     event.preventDefault()
+    $('.ui.modal').modal('show')
     axios.delete(`api/deals/:id`, {
       dealName: document.getElementById('dealName').value,
       value: document.getElementById('dealValue').value,
