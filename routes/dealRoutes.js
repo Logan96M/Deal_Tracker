@@ -9,7 +9,7 @@ router.get('/deals', (req, res) => {
 })
 // GET one deal // id = dealID?
 router.get('/deals/:id', (req, res) => {
-  Deal.findOne({ where: { id: req.params.id }, include: [Deals] })
+  Deal.findOne({ where: { id: req.params.id }})
     .then(deal => res.json(deal))
     .catch(err => console.error(err))
 })
