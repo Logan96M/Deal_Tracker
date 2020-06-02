@@ -1,5 +1,6 @@
 const router = require('express').Router()
 const { Deal } = require('../models')
+// change to code for github
 
 // GET all users
 router.get('/deals', (req, res) => {
