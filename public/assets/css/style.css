@@ -1,0 +1,19 @@
+.main {
+  height: 100%;
+  background: linear-gradient(#0062be, #033564, #051f36)!important;
+}
+
+.bodyDiv {
+  margin-top: 40px;
+}
+
+.stageBackground {
+  background: rgb(206, 239, 245)!important;
+}
+
+/* Turning this on makes the footer visible but not centered: */
+
+/* .footer {
+  position: fixed!important;
+  bottom: 0;
+} */
