@@ -1,6 +1,6 @@
 .main {
   height: 100%;
-  background: linear-gradient(#0062be, #033564, #051f36)!important;
+  background: linear-gradient(#136DC2, #0A4E8D, #06243F)!important;
 }
 
 .bodyDiv {
@@ -11,7 +11,31 @@
   background: rgb(206, 239, 245)!important;
 }
 
+.ui.grid>.column:only-child, .ui.grid>.row>.column:only-child {
+  width: 40%;
+}
+
+a {
+  color: #A9A9A9;
+}
+
+.signInTitle {
+  color: white
+}
+
+.signUpTitle {
+  color: black;
+}
+
+#loginForm {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 /* Turning this on makes the footer visible but not centered: */
+
 /* .footer {
   position: fixed!important;
   bottom: 0;
