@@ -28,6 +28,10 @@
 document.getElementById('addDealButton').addEventListener('click', event => {
   event.preventDefault()
   $('.ui.modal').modal('show')
+  // Give functionality to dropdown in form:
+  $('.selection.dropdown')
+    .dropdown()
+    ;
 })
 // Listen for click on "+ Add a Deal" button on 'Contacted' stage and open modal with fields for creating a new deal:
 // document.getElementById('addContacted').addEventListener('click', event => {
@@ -71,7 +75,7 @@ document.getElementById('addDealButton').addEventListener('click', event => {
             </div>
       </div>`
       console.log(dealElem)
-      document.getElementById('leadStage').append(dealElem)
+      document.getElementById(`${data.stage}`).append(dealElem)
       // document.getElementById('dealName').value = ''
       // document.getElementById('dealValue').value = ''
       // document.getElementById('dealOrg').value = ''

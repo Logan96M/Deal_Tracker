@@ -32,7 +32,7 @@
                         <div class="content">
                             <div class="header">Lead</div>
                         </div>
-                        <div class="content left aligned stageBackground" ondrop="drop(event)" ondragover="allowDrop(event)" id="leadStage">
+                        <div class="content left aligned stageBackground" ondrop="drop(event)" ondragover="allowDrop(event)" id="Lead">
                             <!-- Sample Card -->
                             <!-- <div class="ui raised card" draggable="true" ondragstart="drag(event)" id="deal1">
                                 <div class="content">
@@ -65,7 +65,7 @@
                         <div class="content">
                             <div class="header">Contacted</div>
                         </div>
-                        <div class="content left aligned stageBackground" ondrop="drop(event)" ondragover="allowDrop(event)">
+                        <div class="content left aligned stageBackground" ondrop="drop(event)" ondragover="allowDrop(event)" id="Contacted">
                             
                         </div>
                         <!-- <div class="extra content">
@@ -83,7 +83,7 @@
                         <div class="content">
                             <div class="header">Qualified</div>
                         </div>
-                        <div class="content left aligned stageBackground" ondrop="drop(event)" ondragover="allowDrop(event)">
+                        <div class="content left aligned stageBackground" ondrop="drop(event)" ondragover="allowDrop(event)" id="Qualified">
                 
                         </div>
                         <!-- <div class="extra content">
@@ -101,7 +101,7 @@
                         <div class="content">
                             <div class="header">Proposal Made</div>
                         </div>
-                        <div class="content left aligned stageBackground" ondrop="drop(event)" ondragover="allowDrop(event)">
+                        <div class="content left aligned stageBackground" ondrop="drop(event)" ondragover="allowDrop(event)" id="Proposal">
                 
                         </div>
                         <!-- <div class="extra content">
@@ -183,9 +183,23 @@
                         <label>Notes</label>
                         <textarea rows="3" name="dealNotes" placeholder="Enter any notes about this deal here." id="dealNotes"></textarea>
                     </div>
-                    <div class="field">
+                    <!-- <div class="field">
                         <label>Deal Stage</label>
                         <textarea rows="3" name="dealStage" placeholder="Enter deal stage." id="dealStage"></textarea>
+                    </div> -->
+                    <div class="field">
+                        <label>Choose a Stage to Put This Deal Into</label>
+                        <div class="ui selection dropdown">
+                            <input type="hidden" name="dealStage" id="dealStage">
+                            <i class="dropdown icon"></i>
+                            <div class="default text">Stage</div>
+                            <div class="menu">
+                                <div class="item" data-value="Lead">Lead</div>
+                                <div class="item" data-value="Contacted">Contacted</div>
+                                <div class="item" data-value="Qualified">Qualified</div>
+                                <div class="item" data-value="Proposal">Proposal Made</div>
+                            </div>
+                        </div>
                     </div>
             </form>   
         </div>     
