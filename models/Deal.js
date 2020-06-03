@@ -33,8 +33,13 @@ Deal.init({
   },
   stage: {
     type: DataTypes.STRING,
-    allowNull: false,
-    defaultValue: 'Lead'
+    allowNull: true,
+    defaultValue: "Lead"
+  },
+  userId: {
+    type: DataTypes.INTEGER,
+    autoIncrement: false,
+    foreignKey: true
   }
 }, { sequelize, modelName: 'deal' })
 

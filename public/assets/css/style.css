@@ -1,0 +1,42 @@
+.main {
+  height: 100%;
+  background: linear-gradient(#136DC2, #0A4E8D, #06243F)!important;
+}
+
+.bodyDiv {
+  margin-top: 40px;
+}
+
+.stageBackground {
+  background: rgb(206, 239, 245)!important;
+}
+
+.ui.grid>.column:only-child, .ui.grid>.row>.column:only-child {
+  width: 40%;
+}
+
+a {
+  color: #A9A9A9;
+}
+
+.signInTitle {
+  color: white
+}
+
+.signUpTitle {
+  color: black;
+}
+
+#loginForm {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.footer {
+  position: fixed!important;
+  bottom: 0;
+  width: 100%;
+  background: transparent!important;
+}
