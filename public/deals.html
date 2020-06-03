@@ -14,7 +14,11 @@
             <div class="ui large secondary inverted pointing menu">
                 <h1>Deal Tracker</h1>
                 <div class="right item">
-                    <a class="ui inverted button" id="signOut">Sign Out</a>
+                    <div class="divider" />
+                        <a class="ui labeled icon inverted button" id="addDealButton">
+                            <i class="plus circle icon"></i>
+                            Add a Deal</a>
+                        <a class="ui inverted button" id="signOut">Sign Out</a>
                 </div>
             </div>
         </div>
@@ -24,12 +28,13 @@
             <div class="ui five column doubling stackable grid container">
                 <!-- Lead Stage -->
                 <div class="column">
-                    <div class="ui card" id="leadStage" >
+                    <div class="ui card">
                         <div class="content">
                             <div class="header">Lead</div>
                         </div>
-                        <div class="content left aligned stageBackground" ondrop="drop(event)" ondragover="allowDrop(event)">
-                            <div class="ui raised card" draggable="true" ondragstart="drag(event)" id="deal1">
+                        <div class="content left aligned stageBackground" ondrop="drop(event)" ondragover="allowDrop(event)" id="leadStage">
+                            <!-- Sample Card -->
+                            <!-- <div class="ui raised card" draggable="true" ondragstart="drag(event)" id="deal1">
                                 <div class="content">
                                     <div class="header">Deal Name Here</div>
                                     <div class="description">
@@ -43,14 +48,14 @@
                                     <p><strong>Email:</strong> email@test.com</p>
                                     <p><strong>Notes:</strong>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ullam reiciendis assumenda distinctio, iusto saepe quia optio, ipsam nulla consequatur officiis ipsum. Error quam eaque voluptates, minima nostrum necessitatibus reprehenderit sed.</p>
                                 </div>
-                            </div>
+                            </div> -->
                         </div>
-                        <div class="extra content">
+                        <!-- <div class="extra content">
                             <button class="ui labeled icon blue button" id="addLead">
                                 <i class="plus circle icon"></i>
                                 Add a Deal
                             </button>
-                        </div>
+                        </div> -->
                     </div>
                 </div>
 
@@ -63,12 +68,12 @@
                         <div class="content left aligned stageBackground" ondrop="drop(event)" ondragover="allowDrop(event)">
                             
                         </div>
-                        <div class="extra content">
+                        <!-- <div class="extra content">
                             <button class="ui labeled icon blue button" id="addContacted">
                                 <i class="plus circle icon"></i>
                                 Add a Deal
                             </button>
-                        </div>
+                        </div> -->
                     </div>
                 </div>
 
@@ -81,12 +86,12 @@
                         <div class="content left aligned stageBackground" ondrop="drop(event)" ondragover="allowDrop(event)">
                 
                         </div>
-                        <div class="extra content">
+                        <!-- <div class="extra content">
                             <button class="ui labeled icon blue button" id="addQualified">
                                 <i class="plus circle icon"></i>
                                 Add a Deal
                             </button>
-                        </div>
+                        </div> -->
                     </div>
                 </div>
 
@@ -99,12 +104,12 @@
                         <div class="content left aligned stageBackground" ondrop="drop(event)" ondragover="allowDrop(event)">
                 
                         </div>
-                        <div class="extra content">
+                        <!-- <div class="extra content">
                             <button class="ui labeled icon blue button" id="addProposal">
                                 <i class="plus circle icon"></i>
                                 Add a Deal
                             </button>
-                        </div>
+                        </div> -->
                     </div>
                 </div>
 
@@ -149,34 +154,38 @@
                 <div class="fields">
                     <div class="twelve wide field">
                         <label>Deal Name</label>
-                        <input type="text" name="deal-name" placeholder="Deal Name">
+                        <input type="text" name="dealName" placeholder="Deal Name" id="dealName">
                     </div>  
                     <div class="six wide field">
                         <label>Deal Value (amount in $)</label>
-                        <input type="number" name="deal-value" placeholder="Deal Value">
+                        <input type="number" name="dealValue" placeholder="Deal Value" id="dealValue">
                     </div>
                 </div>    
                 <div class="fields">
                     <div class="four wide field"> 
                         <label>Organization Name</label>
-                        <input type="text" name="org-name" placeholder="Organization Name">
+                        <input type="text" name="dealOrg" placeholder="Company Name" id="dealOrg">
                     </div>
                     <div class="four wide field">
                         <label>Contact Name</label>
-                        <input type="text" name="contact-name" placeholder="Contact Name">
+                        <input type="text" name="dealContact" placeholder="John Doe" id="dealContact">
                     </div>
                     <div class="four wide field"> 
                         <label>Email</label>
-                        <input type="text" name="org-name" placeholder="Organization Name">
+                        <input type="text" name="dealEmail" placeholder="email@email.com" id="dealEmail">
                     </div>
                     <div class="four wide field"> 
                         <label>Phone</label>
-                        <input type="text" name="contact-name" placeholder="Contact Name">
+                        <input type="text" name="dealPhone" placeholder="555-213-3566" id="dealPhone">
                     </div>
                 </div>
                     <div class="field"> 
                         <label>Notes</label>
-                        <textarea rows="3" name="notes" placeholder="Enter any notes about this deal here."></textarea>
+                        <textarea rows="3" name="dealNotes" placeholder="Enter any notes about this deal here." id="dealNotes"></textarea>
+                    </div>
+                    <div class="field">
+                        <label>Deal Stage</label>
+                        <textarea rows="3" name="dealStage" placeholder="Enter deal stage." id="dealStage"></textarea>
                     </div>
             </form>   
         </div>     
@@ -184,7 +193,7 @@
                 <div class="ui black deny button">
                     Cancel
                 </div>
-                <div class="ui positive right labeled icon button">
+                <div class="ui positive right labeled icon button" id="submitDeal">
                     Add New Deal
                     <i class="checkmark icon"></i>
                 </div>
@@ -202,7 +211,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/fomantic-ui/2.8.5/semantic.min.js"></script>
     <script src="./assets/js/style.js"></script>
 
-    <script>
+    <!-- <script>
         // Listen for click on "+ Add a Deal" button on 'Lead' stage and open modal with fields for creating a new deal:
         document.getElementById('addLeadDealBtn').addEventListener('click', event => {
             event.preventDefault()
@@ -213,7 +222,8 @@
             event.preventDefault()
             $('.ui.modal').modal('show')
         })
-    </script>
-
+    </script> -->
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script src="./app.js"></script>
 </body>
 </html>

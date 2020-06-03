@@ -11,8 +11,9 @@
   background: rgb(206, 239, 245)!important;
 }
 
-/* Turning this on makes the footer visible but not centered: */
-/* .footer {
+.footer {
   position: fixed!important;
   bottom: 0;
-} */
+  width: 100%;
+  background: transparent!important;
+}
