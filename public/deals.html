@@ -122,7 +122,7 @@
                                 <div class="content">
                                     <div class="header">Won Deals</div>
                                 </div>
-                                <div class="content left aligned stageBackground" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+                                <div class="content left aligned stageBackground" ondrop="drop(event)" ondragover="allowDrop(event)" id="Won"></div>
                             </div>
                         </div>
                     </div>
@@ -134,7 +134,7 @@
                                 <div class="content">
                                     <div class="header">Lost Deals</div>
                                 </div>
-                                <div class="content left aligned stageBackground" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+                                <div class="content left aligned stageBackground" ondrop="drop(event)" ondragover="allowDrop(event)" id="Loss"></div>
                             </div>
                         </div>
                     </div>
@@ -198,6 +198,8 @@
                                 <div class="item" data-value="Contacted">Contacted</div>
                                 <div class="item" data-value="Qualified">Qualified</div>
                                 <div class="item" data-value="Proposal">Proposal Made</div>
+                                <div class="item" data-value="Won">Won Deals</div>
+                                <div class="item" data-value="Loss">Lost Deals</div>
                             </div>
                         </div>
                     </div>
@@ -224,20 +226,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/fomantic-ui/2.8.5/semantic.min.js"></script>
     <script src="./assets/js/style.js"></script>
-
-    <!-- <script>
-        // Listen for click on "+ Add a Deal" button on 'Lead' stage and open modal with fields for creating a new deal:
-        document.getElementById('addLeadDealBtn').addEventListener('click', event => {
-            event.preventDefault()
-            $('.ui.modal').modal('show')
-        })
-        // Listen for click on "+ Add a Deal" button on 'Contacted' stage and open modal with fields for creating a new deal:
-        document.getElementById('addContactedDealBtn').addEventListener('click', event => {
-            event.preventDefault()
-            $('.ui.modal').modal('show')
-        })
-    </script> -->
-<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-<script src="./app.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="./app.js"></script>
 </body>
 </html>
