@@ -7,6 +7,13 @@ router.get('/deals', (req, res) => {
     .then(deals => res.json(deals))
     .catch(err => console.error(err))
 })
+
+// GET one deal // id = dealID?
+router.get('/deals/:userId', (req, res) => {
+  Deal.findAll({ where: { userId: req.params.userId }})
+    .then(deals => res.json(deals))
+    .catch(err => console.error(err))
+})
 // GET one deal // id = dealID?
 router.get('/deals/:id', (req, res) => {
   Deal.findOne({ where: { id: req.params.id }})
@@ -22,6 +29,12 @@ router.post('/deals', (req, res) => {
 // PUT one deal
 router.put('/deals/:id', (req, res) => {
   Deal.update(req.body, { where: { id: req.params.id } })
+    .then(() => res.sendStatus(200))
+    .catch(err => console.error(err))
+})
+//Deals ID/
+router.put('/deals/:id/:status', (req, res) => {
+  Deal.update({stage:req.params.status}, { where: { id: req.params.id } })
     .then(() => res.sendStatus(200))
     .catch(err => console.error(err))
 })
