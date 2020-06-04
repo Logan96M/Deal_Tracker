@@ -8,7 +8,7 @@ router.get('/deals', (req, res) => {
     .catch(err => console.error(err))
 })
 
-// GET one deal // id = dealID?
+// GET all deals by id
 router.get('/deals/:userId', (req, res) => {
   Deal.findAll({ where: { userId: req.params.userId }})
     .then(deals => res.json(deals))
