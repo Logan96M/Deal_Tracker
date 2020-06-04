@@ -7,11 +7,11 @@ function drag(ev) {
   ev.dataTransfer.setData("text", ev.target.id);
 }
 
-function drop(ev) {
+function drop(ev, el) {
   ev.preventDefault();
   var data = ev.dataTransfer.getData("text");
   console.log(ev.target.id)
-  ev.target.appendChild(document.getElementById(data));
+  el.appendChild(document.getElementById(data));
   axios({
     url: "/api/deals/" + data + "/" + ev.target.id, method: "PUT"
   })
