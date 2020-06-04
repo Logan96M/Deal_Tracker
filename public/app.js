@@ -1,4 +1,4 @@
-// button functionality for signing up and storing login in Local Storage
+// // button functionality for signing up and storing login in Local Storage
 // document.getElementById('signUp').addEventListener('click', event => {
 //     event.preventDefault()
 //     axios.post('/api/users', {
@@ -12,17 +12,17 @@
 //       .catch(err => console.error(err))
 //   })
 
-  //button functionality for signing in and storing login in Local Storage
-  // document.getElementById('signIn').addEventListener('click', event => {
-  //   event.preventDefault()
-  //   axios.get(`api/login/${document.getElementById('username').value}`)
-  //     .then(({ data }) => {
-  //       // console.log(data)
-  //       localStorage.setItem('users', data.id)
-  //       window.location = '/deals.html'
-  //     })
-  //     .catch(err => console.error(err))
-  // })
+//   // button functionality for signing in and storing login in Local Storage
+//   document.getElementById('signIn').addEventListener('click', event => {
+//     event.preventDefault()
+//     axios.get(`api/login/${document.getElementById('username').value}`)
+//       .then(({ data }) => {
+//         // console.log(data)
+//         localStorage.setItem('users', data.id)
+//         window.location = '/deals.html'
+//       })
+//       .catch(err => console.error(err))
+//   })
 
 // Listen for click on "+ Add a Deal" button on 'Lead' stage and open modal with fields for creating a new deal:
 document.getElementById('addDealButton').addEventListener('click', event => {
@@ -33,15 +33,10 @@ document.getElementById('addDealButton').addEventListener('click', event => {
     .dropdown()
     ;
 })
-// Listen for click on "+ Add a Deal" button on 'Contacted' stage and open modal with fields for creating a new deal:
-// document.getElementById('addContacted').addEventListener('click', event => {
-//   event.preventDefault()
-//   $('.ui.modal').modal('show')
-// })
 
-// console.log(localStorage.getItem("user"))
 
-//button functionality for adding a new LEAD deal for specific user
+
+//button functionality for adding a new deal for specific user
   document.getElementById('submitDeal').addEventListener('click', event => {
     event.preventDefault()
     axios.post(`api/deals`, {
@@ -88,6 +83,39 @@ document.getElementById('addDealButton').addEventListener('click', event => {
     })
     .catch(err => console.log(err))
   })
+//show all deals for user
+function showDealsbyUser(userId){
+   userId = 1   //// fake user change for the logged user
+  axios.get("/api/deals/" + userId)  
+  .then(({data}) => {
+    console.log(data)
+let array = data
+array.map(data=>{
+  let dealElem = document.createElement('div')
+  dealElem.innerHTML = `
+  <div class="ui raised card" draggable="true" ondragstart="drag(event)" id="${data.id}">
+    <div class="content">
+      <div class="header">${data.dealName}</div>
+        <div class="description">
+          <h5>Value: ${data.value}</h5>
+        </div>
+      </div>
+        <div class="extra content">
+          <p><strong>Organization: </strong>${data.organization}</p>
+          <p><strong>Contact: </strong>${data.contact}</p>
+          <p><strong>Phone: </strong>${data.phone}</p>
+          <p><strong>Email: </strong>${data.email}</p>
+          <p><strong>Notes: </strong>${data.notes}</p>
+        </div>
+  </div>`
+  console.log(dealElem)
+  document.getElementById(`${data.stage}`).append(dealElem)
+})
+})
+
+}
+
+showDealsbyUser(1)
   //button functionality for adding a new CONTACTED deal for specific user
   // document.getElementById('addContacted').addEventListener('click', event => {
   //   event.preventDefault()
