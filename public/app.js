@@ -1,3 +1,21 @@
+// button functionality for signing out 
+// document.getElementById('signOut').addEventListener('click', event => {
+//   event.preventDefault()
+//   axios.get(`api/logout/${document.getElementById('username').value}`)
+//     .then(({ data }) => {
+//       // console.log(data)
+//       localStorage.setItem('users', data.id)
+//       window.location = '/index.html'
+//     })
+//     .catch(err => console.error(err))
+// })
+
+document.getElementById('signOut').addEventListener('click', event => {
+  event.preventDefault()
+  localStorage.clear();
+  window.location = '/index.html'
+})
+
 // Listen for click on "+ Add a Deal" button on 'Lead' stage and open modal with fields for creating a new deal:
 document.getElementById('addDealButton').addEventListener('click', event => {
   event.preventDefault()
