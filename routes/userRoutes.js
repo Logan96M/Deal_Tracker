@@ -43,6 +43,20 @@ router.get('/login/:name', (req, res) => {
     .catch(err => console.error(err))
 })
 
+// // Log Out one user
+// router.get('/logout/:name', (req, res) => {
+//   User.findOne({ where: { name: req.params.name } })
+//     .then(user => res.json(user))
+//     .catch(err => console.error(err))
+// })
+
+ // Route for logging user out
+//  router.get("/logout", function(req, res) {
+//   req.logout();
+//   res.redirect("/index.html");
+// });
+
+
 module.exports = router
 
 
