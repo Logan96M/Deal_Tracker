@@ -108,19 +108,26 @@ const displayDeal = (id => {
     document.getElementById('dealNotes').value = data.notes
     document.getElementById('dealStage').value = data.stage
     })
-    axios.put("api/deal/" + id, {
-      dealName: document.getElementById('dealName').value,
-      value: document.getElementById('dealValue').value,
-      organization: document.getElementById('dealOrg').value,
-      contact: document.getElementById('dealContact').value,
-      phone: document.getElementById('dealPhone').value,
-      email: document.getElementById('dealEmail').value,
-      notes: document.getElementById('dealNotes').value,
-      stage: document.getElementById('dealStage').value,
-      userId: localStorage.getItem("users")
-    })
     .catch(err => console.log(err))
   })
+
+document.getElementById("editDeal").addEventListener("click", event => {
+  console.log("ping", event.target.id)
+//   axios.put("api/deal/" + this.id, {
+//       dealName: document.getElementById('dealName').value,
+//       value: document.getElementById('dealValue').value,
+//       organization: document.getElementById('dealOrg').value,
+//       contact: document.getElementById('dealContact').value,
+//       phone: document.getElementById('dealPhone').value,
+//       email: document.getElementById('dealEmail').value,
+//       notes: document.getElementById('dealNotes').value,
+//       stage: document.getElementById('dealStage').value,
+//       userId: localStorage.getItem("users")
+// })
+  // .catch(err => console.log(err))
+})
+  
+  
 
   //button functionality for delete deal for specific user
  const deleteDeal = (id => {
