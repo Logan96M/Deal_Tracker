@@ -26,6 +26,7 @@ document.getElementById('addDealButton').addEventListener('click', event => {
 //button functionality for adding a new deal for specific user
   document.getElementById('submitDeal').addEventListener('click', event => {
     event.preventDefault()
+    document.getElementById(`editDeal`).style.display = 'block'
     axios.post(`api/deals`, {
       dealName: document.getElementById('dealName').value,
       value: document.getElementById('dealValue').value,
@@ -80,13 +81,12 @@ array.map(data=>{
         </div>
       </div>
         <div class="extra content">
-        <button class="ui primary button" id="edit${data.id}">Edit Deal</button>
+        <button class="ui primary button" id="edit${data.id}" onclick="displayDeal(${data.id})">Edit Deal</button>
         </div>
   </div>`
   console.log(dealElem)
   document.getElementById(`${data.stage}`).append(dealElem)
 })
-displayDeal(data)
 })
 
 }
@@ -94,28 +94,26 @@ displayDeal(data)
 showDealsbyUser(localStorage.getItem("users"))
 
   //button functionality for edit/update deal for specific user
-const displayDeal = (data) => {
- document.getElementById(`edit${data.id}`).addEventListener('click', event => {
+const displayDeal = (id => {
     event.preventDefault()
-    console.log("ping")
+    console.log(id)
     $('.ui.modal').modal('show')
-    axios.get(`api/deals/:${this.id}`, {
-   dealName, value, organization, contact, phone, email, notes, stage
-  })
+    axios.get("api/deal/" + id)
     .then(({data}) => {
+      JSON.stringify(data)
       console.log(data) 
-    // document.getElementById('dealName').value = data.dealName
-    // document.getElementById('dealValue').value = data.value
-    // document.getElementById('dealOrg').value = data.organization
-    // document.getElementById('dealContact').value = data.contact
-    // document.getElementById('dealPhone').value = data.phone
-    // document.getElementById('dealEmail').value = data.email
-    // document.getElementById('dealNotes').value = data.notes
-    // document.getElementById('dealStage').value = data.stage
+    document.getElementById('dealName').value = data.dealName
+    document.getElementById('dealValue').value = data.value
+    document.getElementById('dealOrg').value = data.organization
+    document.getElementById('dealContact').value = data.contact
+    document.getElementById('dealPhone').value = data.phone
+    document.getElementById('dealEmail').value = data.email
+    document.getElementById('dealNotes').value = data.notes
+    document.getElementById('dealStage').value = data.stage
     })
     .catch(err => console.log(err))
   })
-} 
+
   //button functionality for delete deal for specific user
   // document.getElementById('deleteDeal').addEventListener('click', event => {
   //   event.preventDefault()
