@@ -11,6 +11,7 @@ document.getElementById('addDealButton').addEventListener('click', event => {
   event.preventDefault()
   document.getElementById('updateDeal').style.display = 'none'
   document.getElementById('submitDeal').style.display = 'inline'
+  document.getElementById('deleteDeal').style.display = 'none'
   document.getElementById('dealName').value = ''
   document.getElementById('dealValue').value = ''
   document.getElementById('dealOrg').value = ''
@@ -73,7 +74,6 @@ array.map(data=>{
   let dealElem = document.createElement('div')
   dealElem.innerHTML = `
   <div class="ui raised card" draggable="true" ondragstart="drag(event)" id="${data.id}">
-  <button class="ui primary button mini" id="delete${data.id}" onclick="deleteDeal(${data.id})">X</button>
     <div class="content">
       <div class="header">${data.dealName}</div>
         <div class="description">
@@ -101,6 +101,7 @@ const displayDeal = (id => {
     $('.ui.modal').modal('show')
     document.getElementById('updateDeal').style.display = 'inline'
     document.getElementById('submitDeal').style.display = 'none'
+    document.getElementById('stageDiv').style.display = 'none'
     axios.get("api/deal/" + id)
     .then(({data}) => {
       JSON.stringify(data)
@@ -137,9 +138,11 @@ document.getElementById("updateDeal").addEventListener("click", event => {
   
 
   //button functionality for delete deal for specific user
- const deleteDeal = (id => {
-   console.log("ping", id)
-    axios.delete("api/deal/" + id)
+  document.getElementById("deleteDeal").addEventListener("click", event => {
+    event.preventDefault()
+    console.log(currentId)
+   console.log("ping", currentId)
+    axios.delete("api/deal/" + currentId) 
     location.reload()
     .catch(err => console.log(err))
-  })
+})
