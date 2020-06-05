@@ -1,3 +1,4 @@
+let currentId = 0
 //event listener for signing out the user
 document.getElementById('signOut').addEventListener('click', event => {
   event.preventDefault()
@@ -8,6 +9,9 @@ document.getElementById('signOut').addEventListener('click', event => {
 // Listen for click on "+ Add a Deal" button on 'Lead' stage and open modal with fields for creating a new deal:
 document.getElementById('addDealButton').addEventListener('click', event => {
   event.preventDefault()
+  document.getElementById('updateDeal').style.display = 'none'
+  document.getElementById('submitDeal').style.display = 'inline'
+  document.getElementById('deleteDeal').style.display = 'none'
   document.getElementById('dealName').value = ''
   document.getElementById('dealValue').value = ''
   document.getElementById('dealOrg').value = ''
@@ -70,7 +74,6 @@ array.map(data=>{
   let dealElem = document.createElement('div')
   dealElem.innerHTML = `
   <div class="ui raised card" draggable="true" ondragstart="drag(event)" id="${data.id}">
-  <button class="ui primary button mini" id="delete${data.id}" onclick="deleteDeal(${data.id})">X</button>
     <div class="content">
       <div class="header">${data.dealName}</div>
         <div class="description">
@@ -93,8 +96,12 @@ showDealsbyUser(localStorage.getItem("users"))
   //button functionality for edit/update deal for specific user
 const displayDeal = (id => {
     event.preventDefault()
-    console.log(id)
+    currentId = id
+    console.log(currentId)
     $('.ui.modal').modal('show')
+    document.getElementById('updateDeal').style.display = 'inline'
+    document.getElementById('submitDeal').style.display = 'none'
+    document.getElementById('stageDiv').style.display = 'none'
     axios.get("api/deal/" + id)
     .then(({data}) => {
       JSON.stringify(data)
@@ -111,28 +118,31 @@ const displayDeal = (id => {
     .catch(err => console.log(err))
   })
 
-document.getElementById("editDeal").addEventListener("click", event => {
-  console.log("ping", event.target.id)
-//   axios.put("api/deal/" + this.id, {
-//       dealName: document.getElementById('dealName').value,
-//       value: document.getElementById('dealValue').value,
-//       organization: document.getElementById('dealOrg').value,
-//       contact: document.getElementById('dealContact').value,
-//       phone: document.getElementById('dealPhone').value,
-//       email: document.getElementById('dealEmail').value,
-//       notes: document.getElementById('dealNotes').value,
-//       stage: document.getElementById('dealStage').value,
-//       userId: localStorage.getItem("users")
-// })
-  // .catch(err => console.log(err))
+document.getElementById("updateDeal").addEventListener("click", event => {
+  console.log(currentId)
+  axios.put("api/deal/" + currentId, {
+      dealName: document.getElementById('dealName').value,
+      value: document.getElementById('dealValue').value,
+      organization: document.getElementById('dealOrg').value,
+      contact: document.getElementById('dealContact').value,
+      phone: document.getElementById('dealPhone').value,
+      email: document.getElementById('dealEmail').value,
+      notes: document.getElementById('dealNotes').value,
+      stage: document.getElementById('dealStage').value,
+      userId: localStorage.getItem("users")
+})
+  location.reload()
+  .catch(err => console.log(err))
 })
   
   
 
   //button functionality for delete deal for specific user
- const deleteDeal = (id => {
-   console.log("ping", id)
-    axios.delete("api/deal/" + id)
+  document.getElementById("deleteDeal").addEventListener("click", event => {
+    event.preventDefault()
+    console.log(currentId)
+   console.log("ping", currentId)
+    axios.delete("api/deal/" + currentId) 
     location.reload()
     .catch(err => console.log(err))
-  })
+})
