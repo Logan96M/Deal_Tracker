@@ -70,6 +70,7 @@ array.map(data=>{
   let dealElem = document.createElement('div')
   dealElem.innerHTML = `
   <div class="ui raised card" draggable="true" ondragstart="drag(event)" id="${data.id}">
+  <button class="ui primary button mini" id="delete${data.id}" onclick="deleteDeal(${data.id})">X</button>
     <div class="content">
       <div class="header">${data.dealName}</div>
         <div class="description">
@@ -121,24 +122,10 @@ const displayDeal = (id => {
     .catch(err => console.log(err))
   })
 
-  //function to submit changes to db for specific deal
   //button functionality for delete deal for specific user
-  // document.getElementById('deleteDeal').addEventListener('click', event => {
-  //   event.preventDefault()
-  //   $('.ui.modal').modal('show')
-  //   axios.delete(`api/deals/:id`, {
-  //     dealName: document.getElementById('dealName').value,
-  //     value: document.getElementById('dealValue').value,
-  //     organization: document.getElementById('dealOrg').value,
-  //     contact: document.getElementById('dealContact').value,
-  //     phone: document.getElementById('dealPhone').value,
-  //     email: document.getElementById('dealEmail').value,
-  //     notes: document.getElementById('dealNotes').value,
-  //     stage: document.getElementById('dealStage').value,
-  //     userId: localStorage.getItem(data.id)
-  //   })
-  //   .then(({data}) => {
-  //     location.reload()
-  //   })
-  //   .catch(err => console.log(err))
-  // })
+ const deleteDeal = (id => {
+   console.log("ping", id)
+    axios.delete("api/deal/" + id)
+    location.reload()
+    .catch(err => console.log(err))
+  })
