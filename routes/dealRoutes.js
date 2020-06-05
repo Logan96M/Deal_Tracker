@@ -27,7 +27,7 @@ router.post('/deals', (req, res) => {
     .catch(err => console.error(err))
 })
 // PUT one deal
-router.put('/deals/:id', (req, res) => {
+router.put('/deal/:id', (req, res) => {
   Deal.update(req.body, { where: { id: req.params.id } })
     .then(() => res.sendStatus(200))
     .catch(err => console.error(err))
@@ -39,7 +39,7 @@ router.put('/deals/:id/:status', (req, res) => {
     .catch(err => console.error(err))
 })
 // DELETE one deal
-router.delete('/deals/:id', (req, res) => {
+router.delete('/deal/:id', (req, res) => {
   Deal.destroy({ where: { id: req.params.id } })
     .then(() => res.sendStatus(200))
     .catch(err => console.error(err))
