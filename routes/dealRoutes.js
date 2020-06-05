@@ -8,14 +8,14 @@ router.get('/deals', (req, res) => {
     .catch(err => console.error(err))
 })
 
-// GET all deals by id
+// GET all deals by userId
 router.get('/deals/:userId', (req, res) => {
   Deal.findAll({ where: { userId: req.params.userId }})
     .then(deals => res.json(deals))
     .catch(err => console.error(err))
 })
 // GET one deal // id = dealID?
-router.get('/deals/:id', (req, res) => {
+router.get('/deal/:id', (req, res) => {
   Deal.findOne({ where: { id: req.params.id }})
     .then(deal => res.json(deal))
     .catch(err => console.error(err))
