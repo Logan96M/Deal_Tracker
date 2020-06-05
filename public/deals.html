@@ -113,7 +113,7 @@
     <div class="ui modal">
         <i class="close icon"></i>
         <div class="header">
-            Add a New Deal
+            Deal Information
         </div>
         <div class="form content">
             <form class="ui form">
@@ -149,7 +149,7 @@
                         <label>Notes</label>
                         <textarea rows="3" name="dealNotes" placeholder="Enter any notes about this deal here." id="dealNotes"></textarea>
                     </div>
-                    <div class="field">
+                    <div class="field" id="stageDiv">
                         <label>Choose a Stage to Put This Deal Into</label>
                         <div class="ui selection dropdown">
                             <input type="hidden" name="dealStage" id="dealStage">
@@ -168,9 +168,13 @@
             </form>   
         </div>     
             <div class="actions">
-                <div class="ui black deny button">
+                <div class="ui negative labeled icon button" id="deleteDeal">
+                    Delete Deal
+                    <i class="trash alternate icon"></i>
+                </div><div class="ui black deny button">
                     Cancel
-                </div>
+                </div>                
+
                 <div class="ui positive right labeled icon button" id="submitDeal">
                     Add New Deal
                     <i class="checkmark icon"></i>
@@ -179,6 +183,7 @@
                     Update Deal
                     <i class="checkmark icon"></i>
                 </div>
+
             </div>
     </div>
 
