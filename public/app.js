@@ -9,6 +9,8 @@ document.getElementById('signOut').addEventListener('click', event => {
 // Listen for click on "+ Add a Deal" button on 'Lead' stage and open modal with fields for creating a new deal:
 document.getElementById('addDealButton').addEventListener('click', event => {
   event.preventDefault()
+  document.getElementById('updateDeal').style.display = 'none'
+  document.getElementById('submitDeal').style.display = 'inline'
   document.getElementById('dealName').value = ''
   document.getElementById('dealValue').value = ''
   document.getElementById('dealOrg').value = ''
@@ -97,6 +99,8 @@ const displayDeal = (id => {
     currentId = id
     console.log(currentId)
     $('.ui.modal').modal('show')
+    document.getElementById('updateDeal').style.display = 'inline'
+    document.getElementById('submitDeal').style.display = 'none'
     axios.get("api/deal/" + id)
     .then(({data}) => {
       JSON.stringify(data)
