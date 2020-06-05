@@ -6,37 +6,20 @@
     <title>Deal Tracker</title>
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/fomantic-ui/2.8.5/semantic.min.css">
     <link rel="stylesheet" href="./assets/css/reset.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,700;0,900;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./assets/css/style.css">
 </head>
 <body>
 
-    <!-- <form id="signUpForm">
-      <p>
-        <label for="newUsername">New Username</label>
-        <input type="text" name="newUsername" id="newUsername">
-      </p>
-      <button id="signUp">Sign Up</button>
-    </form> -->
-
-    <!-- <form id="signInForm">
-      <p>
-        <label for="username">Username:</label>
-        <input type="text" name="username" id="username">
-      </p>
-      <button id="signIn">Sign In</button>
-    </form> -->
-<!-- 
-    <button id="signOut">Sign Out</button> -->
-  <div class="main">
-
-    <div id="loginForm" class="ui middle aligned center aligned grid">
+  <div class="ui inverted vertical segment main">
+    <div class="ui middle aligned center aligned grid loginForm">
       <div class="column">
-        <h2 class="signInTitle">Sign in to your existing account</h2>
-        <!-- <h2 class="ui teal image header">
-          <div class="content">
-            Sign in to your existing account
-          </div>
-        </h2> -->
+
+        <!-- Logo and tagline -->
+        <h1 class="homepageLogo">Deal Tracker</h1>
+        <h5 class="tagline">A simple yet powerful interface for tracking deals through the sales process.</h5>
+
+        <!-- Sign in area -->
         <form id="signInForm" class="ui large form signInForm">
           <div class="ui stacked segment">
             <div class="field">
@@ -55,15 +38,12 @@
       </div>
     </div>
     
+    <!-- Sign up modal: -->
     <div class="ui modal">
       <div class="ui middle aligned center aligned grid">
-        <div class="column">
-          <h2 class="signUpTitle">New user sign up</h2>
-          <!-- <h2 class="ui teal image header">
-            <div class="content">
-              New user sign up
-            </div>
-          </h2> -->
+        <div class="column signUpForm">
+          <h3 class="signUpTitle">Enter a Username to Create an Account:</h3>
+          <!-- Sign up form: -->
           <form id="signUpForm" class="ui large form">
             <div class="ui stacked segment">
               <div class="field">
@@ -78,7 +58,6 @@
         </div>
       </div>
     </div>
-
   </div>
 
   <script src="./index.js"></script>

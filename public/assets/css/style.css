@@ -3,6 +3,29 @@
   background: linear-gradient(#136DC2, #0A4E8D, #06243F)!important;
 }
 
+.homepageLogo {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 900;
+  font-size: 90px;
+  line-height: 90%;
+  color: white;
+  text-shadow: 2px 2px 8px rgb(7, 55, 179);
+}
+
+.tagline {
+  margin-top: -5px;
+  margin-bottom: 50px;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
+  font-size: 15px;
+  color: white;
+  text-shadow: 2px 2px 8px rgb(7, 55, 179);
+}
+
+.signUpForm {
+  margin: 20px;
+}
+
 .bodyDiv {
   margin-top: 40px;
 }
@@ -16,18 +39,14 @@
 }
 
 a {
-  color: #A9A9A9;
-}
-
-.signInTitle {
-  color: white
+  color: rgb(167, 167, 167);
 }
 
 .signUpTitle {
-  color: black;
+  color: rgb(70, 70, 70);
 }
 
-#loginForm {
+.loginForm {
   height: 100%;
   display: flex;
   align-items: center;
