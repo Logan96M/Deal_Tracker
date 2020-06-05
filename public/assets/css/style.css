@@ -22,6 +22,14 @@
   text-shadow: 2px 2px 8px rgb(7, 55, 179);
 }
 
+.dealsPageLogo {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 900;
+  font-size: 30px;
+  margin-top: 10px!important;
+  text-shadow: 2px 2px 8px rgb(3, 65, 160);
+}
+
 .signUpForm {
   margin: 20px;
 }
