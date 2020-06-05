@@ -111,7 +111,7 @@ const displayDeal = (id => {
     .catch(err => console.log(err))
   })
 
-document.getElementById("editDeal").addEventListener("click", event => {
+document.getElementById("updateDeal").addEventListener("click", event => {
   console.log("ping", event.target.id)
 //   axios.put("api/deal/" + this.id, {
 //       dealName: document.getElementById('dealName').value,
