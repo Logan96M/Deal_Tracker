@@ -26,7 +26,7 @@ document.getElementById('addDealButton').addEventListener('click', event => {
 //button functionality for adding a new deal for specific user
   document.getElementById('submitDeal').addEventListener('click', event => {
     event.preventDefault()
-    document.getElementById(`editDeal`).style.display = 'block'
+    // document.getElementById(`editDeal`).style.display = 'block'
     axios.post(`api/deals`, {
       dealName: document.getElementById('dealName').value,
       value: document.getElementById('dealValue').value,
@@ -43,20 +43,16 @@ document.getElementById('addDealButton').addEventListener('click', event => {
       let dealElem = document.createElement('div')
       dealElem.innerHTML = `
       <div class="ui raised card" draggable="true" ondragstart="drag(event)" id="${data.id}">
-        <div class="content">
-          <div class="header">${document.getElementById('dealName').value}</div>
-            <div class="description">
-              <h5>Value: ${document.getElementById('dealValue').value}</h5>
-            </div>
+      <div class="content">
+        <div class="header">${data.dealName}</div>
+          <div class="description">
+            <h5>Value: ${data.value}</h5>
           </div>
-            <div class="extra content">
-              <p><strong>Organization: </strong>${document.getElementById('dealOrg').value}</p>
-              <p><strong>Contact: </strong>${document.getElementById('dealContact').value}</p>
-              <p><strong>Phone: </strong>${document.getElementById('dealPhone').value}</p>
-              <p><strong>Email: </strong>${document.getElementById('dealEmail').value}</p>
-              <p><strong>Notes: </strong>${document.getElementById('dealNotes').value}</p>
-            </div>
-      </div>`
+        </div>
+          <div class="extra content">
+          <button class="ui primary button" id="edit${data.id}" onclick="displayDeal(${data.id})">Edit Deal</button>
+          </div>
+    </div>`
       console.log(dealElem)
       document.getElementById(`${data.stage}`).append(dealElem)
     })
@@ -111,9 +107,21 @@ const displayDeal = (id => {
     document.getElementById('dealNotes').value = data.notes
     document.getElementById('dealStage').value = data.stage
     })
+    axios.put("api/deal/" + id, {
+      dealName: document.getElementById('dealName').value,
+      value: document.getElementById('dealValue').value,
+      organization: document.getElementById('dealOrg').value,
+      contact: document.getElementById('dealContact').value,
+      phone: document.getElementById('dealPhone').value,
+      email: document.getElementById('dealEmail').value,
+      notes: document.getElementById('dealNotes').value,
+      stage: document.getElementById('dealStage').value,
+      userId: localStorage.getItem("users")
+    })
     .catch(err => console.log(err))
   })
 
+  //function to submit changes to db for specific deal
   //button functionality for delete deal for specific user
   // document.getElementById('deleteDeal').addEventListener('click', event => {
   //   event.preventDefault()
