@@ -54,7 +54,7 @@ document.getElementById('addDealButton').addEventListener('click', event => {
           </div>
         </div>
           <div class="extra content">
-          <button class="ui primary button" id="edit${data.id}" onclick="displayDeal(${data.id})">Edit Deal</button>
+          <button class="mini ui primary button" id="edit${data.id}" onclick="displayDeal(${data.id})">Edit Deal</button>
           </div>
     </div>`
       console.log(dealElem)
@@ -81,7 +81,7 @@ array.map(data=>{
         </div>
       </div>
         <div class="extra content">
-        <button class="ui primary button" id="edit${data.id}" onclick="displayDeal(${data.id})">Edit Deal</button>
+        <button class="mini ui primary button" id="edit${data.id}" onclick="displayDeal(${data.id})">Edit Deal</button>
         </div>
   </div>`
   console.log(dealElem)
