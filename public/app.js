@@ -1,3 +1,4 @@
+let currentId = 0
 //event listener for signing out the user
 document.getElementById('signOut').addEventListener('click', event => {
   event.preventDefault()
@@ -93,7 +94,8 @@ showDealsbyUser(localStorage.getItem("users"))
   //button functionality for edit/update deal for specific user
 const displayDeal = (id => {
     event.preventDefault()
-    console.log(id)
+    currentId = id
+    console.log(currentId)
     $('.ui.modal').modal('show')
     axios.get("api/deal/" + id)
     .then(({data}) => {
@@ -112,19 +114,20 @@ const displayDeal = (id => {
   })
 
 document.getElementById("updateDeal").addEventListener("click", event => {
-  console.log("ping", event.target.id)
-//   axios.put("api/deal/" + this.id, {
-//       dealName: document.getElementById('dealName').value,
-//       value: document.getElementById('dealValue').value,
-//       organization: document.getElementById('dealOrg').value,
-//       contact: document.getElementById('dealContact').value,
-//       phone: document.getElementById('dealPhone').value,
-//       email: document.getElementById('dealEmail').value,
-//       notes: document.getElementById('dealNotes').value,
-//       stage: document.getElementById('dealStage').value,
-//       userId: localStorage.getItem("users")
-// })
-  // .catch(err => console.log(err))
+  console.log(currentId)
+  axios.put("api/deal/" + currentId, {
+      dealName: document.getElementById('dealName').value,
+      value: document.getElementById('dealValue').value,
+      organization: document.getElementById('dealOrg').value,
+      contact: document.getElementById('dealContact').value,
+      phone: document.getElementById('dealPhone').value,
+      email: document.getElementById('dealEmail').value,
+      notes: document.getElementById('dealNotes').value,
+      stage: document.getElementById('dealStage').value,
+      userId: localStorage.getItem("users")
+})
+  location.reload()
+  .catch(err => console.log(err))
 })
   
   
