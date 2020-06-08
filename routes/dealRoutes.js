@@ -1,13 +1,11 @@
 const router = require('express').Router()
 const { Deal } = require('../models')
-// change to code for github
 // GET all users
 router.get('/deals', (req, res) => {
   Deal.findAll()
     .then(deals => res.json(deals))
     .catch(err => console.error(err))
 })
-
 // GET all deals by userId
 router.get('/deals/:userId', (req, res) => {
   Deal.findAll({ where: { userId: req.params.userId }})
@@ -44,11 +42,4 @@ router.delete('/deal/:id', (req, res) => {
     .then(() => res.sendStatus(200))
     .catch(err => console.error(err))
 })
-// Log In one deal
-// Do not need to log in a deal we think :)
-// router.get('/login/:name', (req, res) => {
-//   Deal.findOne({ where: { name: req.params.name } })
-//     .then(deal => res.json(deal))
-//     .catch(err => console.error(err))
-// })
 module.exports = router

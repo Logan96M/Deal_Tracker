@@ -49,7 +49,6 @@
                         </div>
                         <div class="content left aligned stageBackground" ondrop="drop(event, this)"
                             ondragover="allowDrop(event)" id="Contacted">
-
                         </div>
                     </div>
                 </div>
@@ -62,7 +61,6 @@
                         </div>
                         <div class="content left aligned stageBackground" ondrop="drop(event, this)"
                             ondragover="allowDrop(event)" id="Qualified">
-
                         </div>
                     </div>
                 </div>
@@ -75,14 +73,7 @@
                         </div>
                         <div class="content left aligned stageBackground" ondrop="drop(event, this)"
                             ondragover="allowDrop(event)" id="Proposal">
-
                         </div>
-                        <!-- <div class="extra content">
-                            <button class="ui labeled icon blue button" id="addProposal">
-                                <i class="plus circle icon"></i>
-                                Add a Deal
-                            </button>
-                        </div> -->
                     </div>
                 </div>
 
@@ -133,7 +124,7 @@
                     </div>
                     <div class="six wide field">
                         <label>Deal Value (amount in $)</label>
-                        <input type="number" name="dealValue" placeholder="Deal Value" id="dealValue">
+                        <input type="number" name="dealValue" onsubmit="validateForm()" placeholder="Deal Value" id="dealValue">
                     </div>
                 </div>
                 <div class="fields">
@@ -185,7 +176,6 @@
             <div class="ui black deny button">
                 Cancel
             </div>
-
             <div class="ui positive right labeled icon button" id="submitDeal">
                 Add New Deal
                 <i class="checkmark icon"></i>
@@ -194,7 +184,6 @@
                 Update Deal
                 <i class="checkmark icon"></i>
             </div>
-
         </div>
     </div>
 
@@ -204,7 +193,7 @@
             <h4>© Deal Tracker</h4>
         </div>
     </div>
-    
+    <!-- Script -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/fomantic-ui/2.8.5/semantic.min.js"></script>
     <script src="./assets/js/style.js"></script>

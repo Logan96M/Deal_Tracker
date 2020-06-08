@@ -1,6 +1,13 @@
-// // button functionality for signing up and storing login in Local Storage
+//modal for signUp button
+document.getElementById('signUpPage').addEventListener('click', event => {
+  event.preventDefault()
+  //show modal
+  $('.ui.modal').modal('show')
+})
+// button functionality for signing up and storing login in Local Storage
 document.getElementById('signUp').addEventListener('click', event => {
   event.preventDefault()
+  //run validation on username input
   isNameUnique()
 })
 function isNameUnique(username) {
@@ -19,7 +26,7 @@ function isNameUnique(username) {
       location.reload()
     }
   }
-  //if no match
+  //if no match in db
     console.log("true") 
     //create new username
     axios.post('/api/users', {
@@ -38,12 +45,16 @@ function isNameUnique(username) {
 // button functionality for signing in and storing login in Local Storage
 document.getElementById('signIn').addEventListener('click', event => {
   event.preventDefault()
+  //get username ID for login 
   axios.get(`api/login/${document.getElementById('username').value}`)
     .then(({ data }) => {
       // console.log(data)
+      //put key value pair into local storage
       localStorage.setItem('users', data.id)
+      //change window to deals/html
       window.location = '/deals.html'
     })
     .catch(err => console.error(err))
 })
+
 
