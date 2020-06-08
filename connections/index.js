@@ -1,5 +1,5 @@
 const Sequelize = require('sequelize')
 
-const sequelize = new Sequelize('mysql://root:Zoe2020!@localhost:3306/dealtracker_db')
+const sequelize = new Sequelize('process.env.JAWSDB_URL || process.env.LOCAL_URL')
 
 module.exports = sequelize
