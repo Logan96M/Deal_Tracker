@@ -146,3 +146,5 @@ document.getElementById("updateDeal").addEventListener("click", event => {
     location.reload()
     .catch(err => console.log(err))
 })
+
+
