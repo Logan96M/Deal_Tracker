@@ -27,9 +27,19 @@ document.getElementById('addDealButton').addEventListener('click', event => {
     ;
 })
 
+//function to alert to fill out all inputs
+function validateForm() {
+  var x = document.forms["DealForm"]["dealName"].value;
+  if (x == "") {
+      alert("Deal name cannot be blank.");
+      return false;
+  }
+}
+
 //button functionality for adding a new deal for specific user
   document.getElementById('submitDeal').addEventListener('click', event => {
     event.preventDefault()
+    validateForm()
     // document.getElementById(`editDeal`).style.display = 'block'
     axios.post(`api/deals`, {
       dealName: document.getElementById('dealName').value,
@@ -88,7 +98,6 @@ array.map(data=>{
   document.getElementById(`${data.stage}`).append(dealElem)
 })
 })
-
 }
 
 showDealsbyUser(localStorage.getItem("users"))

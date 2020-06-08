@@ -129,7 +129,7 @@
                 <div class="fields">
                     <div class="twelve wide field">
                         <label>Deal Name</label>
-                        <input type="text" name="dealName" onsubmit="return validateForm()" placeholder="Deal Name" id="dealName">
+                        <input type="text" name="dealName" onsubmit="validateForm()" placeholder="Deal Name" id="dealName">
                     </div>
                     <div class="six wide field">
                         <label>Deal Value (amount in $)</label>
@@ -204,17 +204,7 @@
             <h4>© Deal Tracker</h4>
         </div>
     </div>
-    <script>
-        function validateForm() {
-            var x = document.forms["DealForm"]["dealName"].value;
-            if (x == "") {
-                alert("Name must be filled out");
-                return false;
-            }
-        }
-        validateForm()
-    </script>
-
+    
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/fomantic-ui/2.8.5/semantic.min.js"></script>
     <script src="./assets/js/style.js"></script>
