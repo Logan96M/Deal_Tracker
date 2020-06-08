@@ -1,6 +1,7 @@
 const { Model, DataTypes } = require('sequelize')
 const sequelize = require('../connections')
 
+//define what a deal will look like
 class Deal extends Model { }
 Deal.init({
   dealName: {
