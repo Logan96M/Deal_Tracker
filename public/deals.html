@@ -1,12 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Deals</title>
-    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/fomantic-ui/2.8.5/semantic.min.css">
+    <link rel="stylesheet" type="text/css"
+        href="https://cdnjs.cloudflare.com/ajax/libs/fomantic-ui/2.8.5/semantic.min.css">
     <link rel="stylesheet" href="./assets/css/style.css">
 </head>
+
 <body>
     <div class="ui inverted vertical masthead center aligned segment main">
         <!-- Navbar -->
@@ -15,14 +18,14 @@
                 <h1 class="dealsPageLogo">Deal Tracker</h1>
                 <div class="right item">
                     <div class="divider" />
-                        <a class="ui labeled icon inverted button" id="addDealButton">
-                            <i class="plus circle icon"></i>
-                            Add a Deal</a>
-                        <a class="ui inverted button" id="signOut">Sign Out</a>
+                    <a class="ui labeled icon inverted button" id="addDealButton">
+                        <i class="plus circle icon"></i>
+                        Add a Deal</a>
+                    <a class="ui inverted button" id="signOut">Sign Out</a>
                 </div>
             </div>
         </div>
-    
+
         <!-- Body -->
         <div class="ui container bodyDiv">
             <div class="ui five column doubling stackable grid container">
@@ -32,7 +35,8 @@
                         <div class="content">
                             <div class="header">Lead</div>
                         </div>
-                        <div class="content left aligned stageBackground" ondrop="drop(event, this)" ondragover="allowDrop(event)" id="Lead">
+                        <div class="content left aligned stageBackground" ondrop="drop(event, this)"
+                            ondragover="allowDrop(event)" id="Lead">
                         </div>
                     </div>
                 </div>
@@ -43,8 +47,9 @@
                         <div class="content">
                             <div class="header">Contacted</div>
                         </div>
-                        <div class="content left aligned stageBackground" ondrop="drop(event, this)" ondragover="allowDrop(event)" id="Contacted">
-                            
+                        <div class="content left aligned stageBackground" ondrop="drop(event, this)"
+                            ondragover="allowDrop(event)" id="Contacted">
+
                         </div>
                     </div>
                 </div>
@@ -55,8 +60,9 @@
                         <div class="content">
                             <div class="header">Qualified</div>
                         </div>
-                        <div class="content left aligned stageBackground" ondrop="drop(event, this)" ondragover="allowDrop(event)" id="Qualified">
-                
+                        <div class="content left aligned stageBackground" ondrop="drop(event, this)"
+                            ondragover="allowDrop(event)" id="Qualified">
+
                         </div>
                     </div>
                 </div>
@@ -67,8 +73,9 @@
                         <div class="content">
                             <div class="header">Proposal Made</div>
                         </div>
-                        <div class="content left aligned stageBackground" ondrop="drop(event, this)" ondragover="allowDrop(event)" id="Proposal">
-                
+                        <div class="content left aligned stageBackground" ondrop="drop(event, this)"
+                            ondragover="allowDrop(event)" id="Proposal">
+
                         </div>
                         <!-- <div class="extra content">
                             <button class="ui labeled icon blue button" id="addProposal">
@@ -88,7 +95,8 @@
                                 <div class="content">
                                     <div class="header">Won Deals</div>
                                 </div>
-                                <div class="content left aligned stageBackgroundEnd" ondrop="drop(event, this)" ondragover="allowDrop(event)" id="Won"></div>
+                                <div class="content left aligned stageBackgroundEnd" ondrop="drop(event, this)"
+                                    ondragover="allowDrop(event)" id="Won"></div>
                             </div>
                         </div>
                     </div>
@@ -100,7 +108,8 @@
                                 <div class="content">
                                     <div class="header">Lost Deals</div>
                                 </div>
-                                <div class="content left aligned stageBackgroundEnd" ondrop="drop(event, this)" ondragover="allowDrop(event)" id="Loss"></div>
+                                <div class="content left aligned stageBackgroundEnd" ondrop="drop(event, this)"
+                                    ondragover="allowDrop(event)" id="Loss"></div>
                             </div>
                         </div>
                     </div>
@@ -116,19 +125,19 @@
             Deal Information
         </div>
         <div class="form content">
-            <form class="ui form">
+            <form name= "DealForm" class="ui form" >
                 <div class="fields">
                     <div class="twelve wide field">
                         <label>Deal Name</label>
-                        <input type="text" name="dealName" placeholder="Deal Name" id="dealName">
-                    </div>  
+                        <input type="text" name="dealName" onsubmit="return validateForm()" placeholder="Deal Name" id="dealName">
+                    </div>
                     <div class="six wide field">
                         <label>Deal Value (amount in $)</label>
                         <input type="number" name="dealValue" placeholder="Deal Value" id="dealValue">
                     </div>
-                </div>    
+                </div>
                 <div class="fields">
-                    <div class="four wide field"> 
+                    <div class="four wide field">
                         <label>Organization Name</label>
                         <input type="text" name="dealOrg" placeholder="Company Name" id="dealOrg">
                     </div>
@@ -136,55 +145,57 @@
                         <label>Contact Name</label>
                         <input type="text" name="dealContact" placeholder="John Doe" id="dealContact">
                     </div>
-                    <div class="four wide field"> 
+                    <div class="four wide field">
                         <label>Email</label>
                         <input type="text" name="dealEmail" placeholder="email@email.com" id="dealEmail">
                     </div>
-                    <div class="four wide field"> 
+                    <div class="four wide field">
                         <label>Phone</label>
                         <input type="text" name="dealPhone" placeholder="555-213-3566" id="dealPhone">
                     </div>
                 </div>
-                    <div class="field"> 
-                        <label>Notes</label>
-                        <textarea rows="3" name="dealNotes" placeholder="Enter any notes about this deal here." id="dealNotes"></textarea>
-                    </div>
-                    <div class="field" id="stageDiv">
-                        <label>Choose a Stage to Put This Deal Into</label>
-                        <div class="ui selection dropdown">
-                            <input type="hidden" name="dealStage" id="dealStage">
-                            <i class="dropdown icon"></i>
-                            <div class="default text">Stage</div>
-                            <div class="menu">
-                                <div class="item" data-value="Lead">Lead</div>
-                                <div class="item" data-value="Contacted">Contacted</div>
-                                <div class="item" data-value="Qualified">Qualified</div>
-                                <div class="item" data-value="Proposal">Proposal Made</div>
-                                <div class="item" data-value="Won">Won Deals</div>
-                                <div class="item" data-value="Loss">Lost Deals</div>
-                            </div>
+                <div class="field">
+                    <label>Notes</label>
+                    <textarea rows="3" name="dealNotes" placeholder="Enter any notes about this deal here."
+                        id="dealNotes"></textarea>
+                </div>
+                <div class="field" id="stageDiv">
+                    <label>Choose a Stage to Put This Deal Into</label>
+                    <div class="ui selection dropdown">
+                        <input type="hidden" name="dealStage" id="dealStage">
+                        <i class="dropdown icon"></i>
+                        <div class="default text">Stage</div>
+                        <div class="menu">
+                            <div class="item" data-value="Lead">Lead</div>
+                            <div class="item" data-value="Contacted">Contacted</div>
+                            <div class="item" data-value="Qualified">Qualified</div>
+                            <div class="item" data-value="Proposal">Proposal Made</div>
+                            <div class="item" data-value="Won">Won Deals</div>
+                            <div class="item" data-value="Loss">Lost Deals</div>
                         </div>
                     </div>
-            </form>   
-        </div>     
-            <div class="actions">
-                <div class="ui negative labeled icon button" id="deleteDeal">
-                    Delete Deal
-                    <i class="trash alternate icon"></i>
-                </div><div class="ui black deny button">
-                    Cancel
-                </div>                
-
-                <div class="ui positive right labeled icon button" id="submitDeal">
-                    Add New Deal
-                    <i class="checkmark icon"></i>
                 </div>
-                <div class="ui positive right labeled icon button" id="updateDeal">
-                    Update Deal
-                    <i class="checkmark icon"></i>
-                </div>
-
+            </form>
+        </div>
+        <div class="actions">
+            <div class="ui negative labeled icon button" id="deleteDeal">
+                Delete Deal
+                <i class="trash alternate icon"></i>
             </div>
+            <div class="ui black deny button">
+                Cancel
+            </div>
+
+            <div class="ui positive right labeled icon button" id="submitDeal">
+                Add New Deal
+                <i class="checkmark icon"></i>
+            </div>
+            <div class="ui positive right labeled icon button" id="updateDeal">
+                Update Deal
+                <i class="checkmark icon"></i>
+            </div>
+
+        </div>
     </div>
 
     <!-- Footer -->
@@ -193,6 +204,16 @@
             <h4>© Deal Tracker</h4>
         </div>
     </div>
+    <script>
+        function validateForm() {
+            var x = document.forms["DealForm"]["dealName"].value;
+            if (x == "") {
+                alert("Name must be filled out");
+                return false;
+            }
+        }
+        validateForm()
+    </script>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/fomantic-ui/2.8.5/semantic.min.js"></script>
@@ -200,4 +221,5 @@
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="./app.js"></script>
 </body>
+
 </html>
