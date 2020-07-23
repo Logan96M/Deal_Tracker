@@ -11,6 +11,10 @@
 ## Installation
 #### Please follow this command to install npm dependencies:
 > npm i
+
+## Deployed Link
+> https://deal-tracker-app.herokuapp.com/deals.html
+
 ## Usage
 > Enables the user to: create, track, update and delete deals.
 
